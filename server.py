@@ -10,7 +10,10 @@ def find_country_info(country):
         return { "Message": f"Sorry, we have an httperror(error: {error}), please try again"  }
     
     def default_connectionerror_message():
-        return { "Message": f"Sorry, we have an connection error try again" }
+        return { "Message": "Sorry, we have an connection error try again" }
+    
+    def unknown_error_message():
+        return { "Message": "Sorry, we have an unknown error try again"}
 
     if country == '':
         return default_error_message()
@@ -39,6 +42,8 @@ def find_country_info(country):
             return default_httperror_message(error)
     except ConnectionError:
         return default_connectionerror_message()
+    except:
+        return unknown_error_message()
 
 if __name__ == '__main__':
     print(find_country_info('russia'))
