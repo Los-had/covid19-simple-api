@@ -3,6 +3,7 @@ from flask import Flask, render_template, redirect, request, url_for
 import os
 
 app = Flask(__name__)
+# app secret key
 KEY = os.environ.get('KEY')
 app.config['SECRET_KEY'] = KEY
 
@@ -25,4 +26,4 @@ def api(country):
         return redirect('/error')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True) # runs the app with debug mode on
