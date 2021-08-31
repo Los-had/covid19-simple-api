@@ -2,8 +2,11 @@ import requests
 from bs4 import BeautifulSoup
 
 def find_country_info(country):
-    if country == '':
+    def default_error_message():
         return { "Message": "This country doesn't exist or was not found." }
+
+    if country == '':
+        return default_error_message() 
     
     website = requests.get(f'https://www.worldometers.info/coronavirus/country/{country}').text
     soup = BeautifulSoup(website, 'lxml')
@@ -19,7 +22,7 @@ def find_country_info(country):
         return { "country": country_name, "total_cases": result_array[0], "deaths": result_array[1], "recovered": result_array[2] }
 
     except IndexError:
-        return { "Message": "This country doesn't exist or was not found." }
+        return default_error_message()
 
 if __name__ == '__main__':
     print(find_country_info('russia'))
