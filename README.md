@@ -16,11 +16,12 @@ $ python app.py
 
 to stop the server(localhost) press <kbd>Ctrl</kbd><kbd>+</kbd><kbd>C</kbd> or <kbd>Cmd</kbd><kbd>+</kbd><kbd>C</kbd>
 
-# returned json
+# mini-tutorial
+***This is an example***
 
 to use the api, use this link: [https://covid19-simple-api.herokuapp.com/api/{country name}](https://covid19-simple-api.herokuapp.com/api/russia)
 
-***This is an example***
+### returned json
 ```
 {
     "country": "<country name>",

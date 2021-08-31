@@ -6,9 +6,10 @@ def find_country_info(country):
         return { "Message": "This country doesn't exist or was not found." }
     
     website = requests.get(f'https://www.worldometers.info/coronavirus/country/{country}').text
-    soup = BeautifulSoup(website, 'html.parser')
+    soup = BeautifulSoup(website, 'lxml')
     info = soup.find_all('div', class_='maincounter-number')
     country_name = country.capitalize()
+    
     try:
         result_array = []
 
