@@ -31,6 +31,7 @@ def find_country_info(country):
 
         except IndexError:
             return default_error_message()
+        
     except HTTPError as error:
         if error.code == 404:
             return default_error_message()
